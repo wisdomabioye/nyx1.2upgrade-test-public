@@ -10,6 +10,8 @@ const bodyParser = require('body-parser')
 require('express-async-errors')
 const cors = require('cors')
 
+require('dotenv').config();
+
 app.use(cors())
 
 app.use(bodyParser.urlencoded({ extended: true }))
@@ -46,7 +48,7 @@ app.use(passport.session());
 //------------ Routes ------------//
 app.use('/api', require('./routes/index'));
 app.use('/auth', require('./routes/auth'));
-
+app.use('/whale', require('./routes/whale'))
 //------------ middleware ------------//
 app.use(require('./middlewares/ErrorHandler'))
 
